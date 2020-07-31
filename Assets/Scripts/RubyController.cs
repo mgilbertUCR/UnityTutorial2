@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
@@ -15,9 +15,10 @@ public class RubyController : MonoBehaviour
     void Update()
     {
         float horizontal = Input.GetAxis("Horizontal");
-        Debug.Log(horizontal);
+        float vertical = Input.GetAxis("Vertical");
         Vector2 position = transform.position;
-        position.x = position.x + 0.1f * horizontal;
+        position.x = position.x + 3.0f * horizontal * Time.deltaTime;
+        position.y = position.y + 3.0f * vertical * Time.deltaTime;
         transform.position = position;
     }
 }
