@@ -294,6 +294,7 @@ GameObject:
   - component: {fileID: 1123675743}
   - component: {fileID: 1123675742}
   - component: {fileID: 1123675744}
+  - component: {fileID: 1123675745}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: Untagged
@@ -4579,6 +4580,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62382a5c8fc222f40b6ac68d8fef51f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1123675745
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123675737}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1264783758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4903,11 +4923,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4152933856740561582, guid: aa8c377b4a6a3ce40876a2fe5c4787c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.9
+      value: -8.6
       objectReference: {fileID: 0}
     - target: {fileID: 4152933856740561582, guid: aa8c377b4a6a3ce40876a2fe5c4787c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.82
+      value: -4.34
       objectReference: {fileID: 0}
     - target: {fileID: 4152933856740561582, guid: aa8c377b4a6a3ce40876a2fe5c4787c1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5073,14 +5093,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2966845192573442564, guid: ca08407c2500d2044b0572a1deb590cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2966845192573442565, guid: ca08407c2500d2044b0572a1deb590cb, type: 3}
-      propertyPath: currentHealth
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2966845192573442566, guid: ca08407c2500d2044b0572a1deb590cb, type: 3}
-      propertyPath: m_SleepingMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2966845192573442570, guid: ca08407c2500d2044b0572a1deb590cb, type: 3}
