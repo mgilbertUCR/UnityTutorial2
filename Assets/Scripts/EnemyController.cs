@@ -14,6 +14,8 @@ public class EnemyController : MonoBehaviour
     int direction = 1;
 
     bool broken = true;
+    public ParticleSystem smokeEffect;
+    public ParticleSystem healEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -79,5 +81,7 @@ public class EnemyController : MonoBehaviour
         broken = false;
         rigidbody2d.simulated = false;
         animator.SetTrigger("Fixed");
+        smokeEffect.Stop();
+        Instantiate(healEffect, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
     }
 }

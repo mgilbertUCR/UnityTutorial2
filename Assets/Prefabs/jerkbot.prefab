@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 606661733231418272}
   - component: {fileID: 7079180885460670974}
   - component: {fileID: 3946410446671188183}
+  - component: {fileID: 3859923955112927318}
   m_Layer: 0
   m_Name: jerkbot
   m_TagString: Untagged
@@ -30,7 +31,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.9, y: -6.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4506509614858612581}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -131,7 +133,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &3946410446671188183
 Animator:
   serializedVersion: 3
@@ -151,3 +153,82 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3859923955112927318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5197013270101746675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3f9e0ef5155934eb2901fa77cebf75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  vertical: 0
+  changeTime: 3
+  smokeEffect: {fileID: 3052589564202207485, guid: 8d9c8884ba1957c42a76af68bab16213, type: 3}
+  healEffect: {fileID: 2701744523141615943, guid: 4b028ae2c065a7c41b3f46725cb953d5, type: 3}
+--- !u!1001 &1501577291553171353
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4152933856740561582}
+    m_Modifications:
+    - target: {fileID: 3052589564202207484, guid: 8d9c8884ba1957c42a76af68bab16213, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052589564202207484, guid: 8d9c8884ba1957c42a76af68bab16213, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052589564202207484, guid: 8d9c8884ba1957c42a76af68bab16213, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052589564202207484, guid: 8d9c8884ba1957c42a76af68bab16213, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052589564202207484, guid: 8d9c8884ba1957c42a76af68bab16213, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052589564202207484, guid: 8d9c8884ba1957c42a76af68bab16213, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052589564202207484, guid: 8d9c8884ba1957c42a76af68bab16213, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052589564202207484, guid: 8d9c8884ba1957c42a76af68bab16213, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052589564202207484, guid: 8d9c8884ba1957c42a76af68bab16213, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052589564202207484, guid: 8d9c8884ba1957c42a76af68bab16213, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052589564202207484, guid: 8d9c8884ba1957c42a76af68bab16213, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3052589564202207487, guid: 8d9c8884ba1957c42a76af68bab16213, type: 3}
+      propertyPath: m_Name
+      value: SmokeEffect
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8d9c8884ba1957c42a76af68bab16213, type: 3}
+--- !u!4 &4506509614858612581 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3052589564202207484, guid: 8d9c8884ba1957c42a76af68bab16213, type: 3}
+  m_PrefabInstance: {fileID: 1501577291553171353}
+  m_PrefabAsset: {fileID: 0}

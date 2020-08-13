@@ -25,6 +25,9 @@ public class RubyController : MonoBehaviour
 
     public GameObject projectilePrefab;
 
+    public ParticleSystem hitParticle;
+    public ParticleSystem healParticle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,18 +78,27 @@ public class RubyController : MonoBehaviour
     
     public void ChangeHealth(int amount)
     {
-        if (amount< 0)
+        if (amount <= -1)
         {
-            if (isInvincible)
-            { return; }
+            if (amount < 0)
+            {
+                if (isInvincible)
+                { return; }
 
-            isInvincible = true;
-            invincibleTimer = timeInvincible;
+                isInvincible = true;
+                invincibleTimer = timeInvincible;
+            }
+            animator.SetTrigger("Hit");
+            Instantiate(hitParticle, rigidbody2d.position + Vector2.up * .5f, Quaternion.identity);
+            currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+            Debug.Log("Health:" + currentHealth + "/" + maxHealth);
         }
-        animator.SetTrigger("Hit");
-
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        Debug.Log("Health:" + currentHealth + "/" + maxHealth);
+        else
+        {
+            Instantiate(healParticle, rigidbody2d.position + Vector2.up * .5f, Quaternion.identity);
+            currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+            Debug.Log("Health:" + currentHealth + "/" + maxHealth);
+        }
     }
 
     void Launch()
