@@ -11,7 +11,7 @@ public class DamageZone : MonoBehaviour
         if (controller != null)
         {
             controller.ChangeHealth(-1);
-            Debug.Log("Ow! That hurt!");
+            //Debug.Log("Ow! That hurt!");
         }
     }
 }

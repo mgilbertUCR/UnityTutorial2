@@ -33,7 +33,7 @@ public class RubyController : MonoBehaviour
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        currentHealth = maxHealth - 1;
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -62,9 +62,24 @@ public class RubyController : MonoBehaviour
             
         }
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             Launch();
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookdirection, 1.5f, LayerMask.GetMask("NPC"));
+            if (hit.collider != null)
+            {
+                JambiController jambi = hit.collider.GetComponent<JambiController>();
+                if (jambi != null)
+                {
+
+                    jambi.DisplayDialog();
+                    //Debug.Log("Raycast hit " + hit.collider.gameObject);
+                }
+            }
         }
     }
 
@@ -91,13 +106,21 @@ public class RubyController : MonoBehaviour
             animator.SetTrigger("Hit");
             Instantiate(hitParticle, rigidbody2d.position + Vector2.up * .5f, Quaternion.identity);
             currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-            Debug.Log("Health:" + currentHealth + "/" + maxHealth);
+            UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
         }
         else
         {
+            if (amount < 0)
+            {
+                if (isInvincible)
+                { return; }
+
+                isInvincible = true;
+                invincibleTimer = timeInvincible;
+            }
             Instantiate(healParticle, rigidbody2d.position + Vector2.up * .5f, Quaternion.identity);
             currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-            Debug.Log("Health:" + currentHealth + "/" + maxHealth);
+            UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
         }
     }
 
