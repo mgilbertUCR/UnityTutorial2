@@ -6,7 +6,9 @@ public class Projectile : MonoBehaviour
 {
 
     Rigidbody2D rigidbody2d;
-    
+
+    //public AudioClip launchClip;
+
     void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -14,8 +16,10 @@ public class Projectile : MonoBehaviour
 
     public void Launch(Vector2 direction, float force)
         {
-            rigidbody2d.AddForce(direction * force);
-        }
+        //RubyController controller = GetComponent<RubyController>();
+        rigidbody2d.AddForce(direction * force);
+            //controller.PlaySound(launchClip);
+    }
 
     void OnCollisionEnter2D(Collision2D other)
         {

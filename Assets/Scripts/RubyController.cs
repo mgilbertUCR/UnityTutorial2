@@ -28,12 +28,17 @@ public class RubyController : MonoBehaviour
     public ParticleSystem hitParticle;
     public ParticleSystem healParticle;
 
+    AudioSource audioSource;
+    public AudioClip launchSound;
+    public AudioClip hurtSound;
+
     // Start is called before the first frame update
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -104,6 +109,7 @@ public class RubyController : MonoBehaviour
                 invincibleTimer = timeInvincible;
             }
             animator.SetTrigger("Hit");
+            audioSource.PlayOneShot(hurtSound);
             Instantiate(hitParticle, rigidbody2d.position + Vector2.up * .5f, Quaternion.identity);
             currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
             UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
@@ -132,5 +138,11 @@ public class RubyController : MonoBehaviour
         projectile.Launch(lookdirection, 300);
 
         animator.SetTrigger("Launch");
+        audioSource.PlayOneShot(launchSound);
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }

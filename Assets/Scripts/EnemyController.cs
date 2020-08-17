@@ -17,12 +17,18 @@ public class EnemyController : MonoBehaviour
     public ParticleSystem smokeEffect;
     public ParticleSystem healEffect;
 
+    AudioSource audioSource;
+    public AudioClip hitSound1;
+    public AudioClip hitSound2;
+    public AudioClip fixSound;
+
     // Start is called before the first frame update
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         timer = changeTime;
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -73,6 +79,12 @@ public class EnemyController : MonoBehaviour
         if (player != null)
             {
             player.ChangeHealth(-1);
+            if (Random.Range(1, 0) < 0.5)
+            {
+                audioSource.PlayOneShot(hitSound1);
+            }
+            else
+            { audioSource.PlayOneShot(hitSound2); }
         }
     }
 
@@ -83,5 +95,6 @@ public class EnemyController : MonoBehaviour
         animator.SetTrigger("Fixed");
         smokeEffect.Stop();
         Instantiate(healEffect, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+        audioSource.PlayOneShot(fixSound);
     }
 }
