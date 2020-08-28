@@ -1,4 +1,7 @@
 # UnityTutorial2
-2nd Try at Unity Repository for Ruby's Adventure 2D Tutorial
+A completed version of the Ruby's Quest 2D Game Tutorial from Unity.com
 
-Hopefully this works better than previous attempts.
+Controls:
+Z: Shoot gear to fix robot
+X: Talk and Interact
+ESC: Quit game

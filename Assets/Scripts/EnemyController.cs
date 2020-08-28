@@ -22,6 +22,10 @@ public class EnemyController : MonoBehaviour
     public AudioClip hitSound2;
     public AudioClip fixSound;
 
+    public int BotCount;
+
+    int frame;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +33,7 @@ public class EnemyController : MonoBehaviour
         timer = changeTime;
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        BotCounter.instance.UpdateBotCount(1);
     }
 
     void Update()
@@ -70,6 +75,16 @@ public class EnemyController : MonoBehaviour
         }
         
         rigidbody2d.MovePosition(position);
+
+        frame++;
+        if (frame > 180)
+        {
+            if (Random.Range(0f, 1f) < .8f)
+            {
+                vertical = !vertical;
+                frame = 0;
+            }
+        }
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -96,5 +111,10 @@ public class EnemyController : MonoBehaviour
         smokeEffect.Stop();
         Instantiate(healEffect, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
         audioSource.PlayOneShot(fixSound);
+
+
+        BotCounter.instance.UpdateBotCount(-1);
+
     }
+
 }

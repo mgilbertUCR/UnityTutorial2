@@ -169,7 +169,7 @@ MonoBehaviour:
   speed: 3
   vertical: 0
   changeTime: 3
-  smokeEffect: {fileID: 3052589564202207485, guid: 8d9c8884ba1957c42a76af68bab16213, type: 3}
+  smokeEffect: {fileID: 4506509614858612580}
   healEffect: {fileID: 2701744523141615943, guid: 4b028ae2c065a7c41b3f46725cb953d5, type: 3}
   hitSound1: {fileID: 8300000, guid: ae904c7305df7344d86b2092c0cb3a26, type: 3}
   hitSound2: {fileID: 8300000, guid: 709a835b61b848644946696fdd5e5a4d, type: 3}
@@ -330,5 +330,10 @@ PrefabInstance:
 --- !u!4 &4506509614858612581 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3052589564202207484, guid: 8d9c8884ba1957c42a76af68bab16213, type: 3}
+  m_PrefabInstance: {fileID: 1501577291553171353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4506509614858612580 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3052589564202207485, guid: 8d9c8884ba1957c42a76af68bab16213, type: 3}
   m_PrefabInstance: {fileID: 1501577291553171353}
   m_PrefabAsset: {fileID: 0}
